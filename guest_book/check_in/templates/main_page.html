@@ -9,7 +9,7 @@
               {{ guest.name }} ({{ guest.e_mail }})
           </div>
           <div>
-              <a class="icons mr-2" href=""><i class="far fa-edit"></i></a>
+              <a class="icons mr-2" href="{% url 'guest-data-update'  guest.id %}#add"><i class="far fa-edit"></i></a>
               <a class="icons" href=""><i class="far fa-trash-alt"></i></a>
           </div>
 
@@ -20,5 +20,9 @@
     </div>
     {% endfor %}
     <p><a name="add"></a></p>
-    {% include 'add_guest.html' %}
+    {% if update %}
+        {% include 'update_data.html' %}
+    {% else %}
+        {% include 'add_guest.html' %}
+    {% endif %}
 {% endblock %}

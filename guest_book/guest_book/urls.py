@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from check_in.views import guest_list_view, guest_add_view
+from check_in.views import guest_list_view, guest_add_view, guest_data_update
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', guest_list_view, name='guest-list'),
     path('add/', guest_add_view, name='guest-add'),
+    path('guest/<int:pk>/update', guest_data_update, name='guest-data-update'),
 ]
