@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for guest in guests %}
+    <div class="card mt-2">
+      <div class="card-header d-flex flex-row justify-content-between">
+          <div>{{ guest.name }} ({{ guest.e_mail }})</div>
+          <div>
+              <a href=""><i class="far fa-edit"></i></a>
+              <a href=""><i class="far fa-trash-alt"></i></a>
+          </div>
+
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{ guest.reg_info }}</p>
+      </div>
+    </div>
+    {% endfor %}
+{% endblock %}
