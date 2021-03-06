@@ -58,7 +58,6 @@ def guest_search(request):
     form = GuestForm()
     search_form = SearchForm()
     search_str = request.GET.get('search')
-    guests = Guest.objects.filter(name__contains=search_str)
-    print(guests)
+    guests = Guest.objects.filter(name__contains=search_str).order_by('-create_date')
     return render(request, 'main_page.html', {'guests': guests, 'search_form': search_form, 'form': form})
 
