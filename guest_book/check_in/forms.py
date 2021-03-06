@@ -1,5 +1,5 @@
 from django.forms import ModelForm, TextInput, Textarea, EmailInput
-
+from django import forms
 
 from check_in.models import Guest
 
@@ -21,3 +21,7 @@ class GuestForm(ModelForm):
                 'class': 'form-control'
             }),
         }
+
+
+class SearchForm(forms.Form):
+    search = forms.CharField(max_length=50)

@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
 
 from check_in.models import Guest
-from check_in.forms import GuestForm
+from check_in.forms import GuestForm, SearchForm
 
 
 def guest_list_view(request):
     form = GuestForm()
+    search_form = SearchForm()
     guests = Guest.objects.filter(status='active').order_by('-create_date')
-    return render(request, 'main_page.html', {'guests': guests, 'form': form})
+    return render(request, 'main_page.html', {'guests': guests, 'form': form, 'search_form': search_form})
 
 
 def guest_add_view(request):
@@ -51,4 +52,13 @@ def guest_data_delete(request, pk):
     elif request.method == 'POST':
         guest.delete()
         return redirect('guest-list')
+
+
+def guest_search(request):
+    form = GuestForm()
+    search_form = SearchForm()
+    search_str = request.GET.get('search')
+    guests = Guest.objects.filter(name__contains=search_str)
+    print(guests)
+    return render(request, 'main_page.html', {'guests': guests, 'search_form': search_form, 'form': form})
 

@@ -2,11 +2,18 @@
 {% load static %}
 
 {% block content %}
+    <nav class="navbar navbar-light sticky-top my-nav">
+        <form class="d-flex" action="{% url 'guest-search' %}" method="get" >
+            {{ search_form.search }}
+            <input class="btn btn-secondary ml-1" type="submit" value="Поиск"/>
+        </form>
+        <a class="icon-1 ml-auto mr-3" href="{% url 'guest-list' %}"><i class="far fa-list-alt"></i></a>
+        <a class="icon-1" href="#form"><i class="fas fa-user-plus"></i></a>
+    </nav>
     {% for guest in guests %}
     <div class="card mt-2">
       <div class="card-header d-flex flex-row justify-content-between">
           <div>
-              <a class="icon-1 mr-2" href="#form"><i class="fas fa-user-plus"></i></a>
               {{ guest.name }} ({{ guest.e_mail }})
           </div>
           <div>
