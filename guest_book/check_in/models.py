@@ -4,7 +4,7 @@ from django.db import models
 class Guest(models.Model):
     STATUS_CHOICES = [('active', 'Активно'), ('blocked', 'Заблокировано')]
 
-    name = models.CharField(max_length=50, blank=False, null=False, verbose_name='Имя')
+    name = models.CharField(max_length=50, blank=False, null=False, verbose_name='Ф.И.О')
     e_mail = models.EmailField(max_length=50, blank=False, null=False, verbose_name='Электронная почта')
     reg_info = models.TextField(max_length=2000, blank=False, null=False, verbose_name='Текст записи')
     create_date = models.DateTimeField(auto_now_add=True)

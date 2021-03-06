@@ -1,3 +1,5 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,10 +9,11 @@
     <script src="https://kit.fontawesome.com/f49adcec09.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
     <title>Guest Book</title>
 </head>
 <body class="content">
-    <div class="card mx-auto my-card" style="width: 70%;">
+    <div class="card mx-auto my-card border-0" style="width: 70%;">
     {% block content %}
     {% endblock %}
     </div>

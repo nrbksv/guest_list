@@ -4,10 +4,13 @@
     {% for guest in guests %}
     <div class="card mt-2">
       <div class="card-header d-flex flex-row justify-content-between">
-          <div>{{ guest.name }} ({{ guest.e_mail }})</div>
           <div>
-              <a href=""><i class="far fa-edit"></i></a>
-              <a href=""><i class="far fa-trash-alt"></i></a>
+              <a class="icon-1 mr-2" href="#add"><i class="fas fa-user-plus"></i></a>
+              {{ guest.name }} ({{ guest.e_mail }})
+          </div>
+          <div>
+              <a class="icons mr-2" href=""><i class="far fa-edit"></i></a>
+              <a class="icons" href=""><i class="far fa-trash-alt"></i></a>
           </div>
 
       </div>
@@ -16,4 +19,6 @@
       </div>
     </div>
     {% endfor %}
+    <p><a name="add"></a></p>
+    {% include 'add_guest.html' %}
 {% endblock %}

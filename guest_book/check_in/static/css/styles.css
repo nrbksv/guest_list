@@ -1,0 +1,32 @@
+.icons {
+    text-decoration: none;
+    color: black;
+    font-size: 19px;
+}
+
+.icons:hover {;
+    color: #535353;
+}
+
+.icon-1 {
+    text-decoration: none;
+    color: #535353;
+
+}
+
+.icon-1:hover {
+    color: #000000;
+}
+
+
+.form-error {
+    color: red;
+    font-size: 12px;
+    margin: 5px 0 0 0
+}
+
+.form-field-error {
+    border: solid 1px red;
+    box-shadow: red 0 0 3px;
+    display: inline-block;
+}
