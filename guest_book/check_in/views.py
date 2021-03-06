@@ -43,3 +43,12 @@ def guest_data_update(request, pk):
             return redirect('guest-list')
         return render(request, {'guests': guests, 'form': form, 'guest': guest})
 
+
+def guest_data_delete(request, pk):
+    guest = get_object_or_404(Guest, id=pk)
+    if request.method == 'GET':
+        return render(request, 'delete_confirm.html', {'guest': guest})
+    elif request.method == 'POST':
+        guest.delete()
+        return redirect('guest-list')
+

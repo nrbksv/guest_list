@@ -1,28 +1,30 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
     {% for guest in guests %}
     <div class="card mt-2">
       <div class="card-header d-flex flex-row justify-content-between">
           <div>
-              <a class="icon-1 mr-2" href="#add"><i class="fas fa-user-plus"></i></a>
+              <a class="icon-1 mr-2" href="#form"><i class="fas fa-user-plus"></i></a>
               {{ guest.name }} ({{ guest.e_mail }})
           </div>
           <div>
-              <a class="icons mr-2" href="{% url 'guest-data-update'  guest.id %}#add"><i class="far fa-edit"></i></a>
-              <a class="icons" href=""><i class="far fa-trash-alt"></i></a>
+              <a class="icons mr-2" href="{% url 'guest-data-update'  guest.id %}#form"><i class="far fa-edit"></i></a>
+              <a class="icons" href="{% url 'guest-data-delete' guest.id %}"><i class="far fa-trash-alt"></i></a>
           </div>
-
       </div>
       <div class="card-body">
         <p class="card-text">{{ guest.reg_info }}</p>
       </div>
     </div>
     {% endfor %}
-    <p><a name="add"></a></p>
+    <p><a name="form"></a></p>
     {% if update %}
         {% include 'update_data.html' %}
     {% else %}
         {% include 'add_guest.html' %}
     {% endif %}
+
+
 {% endblock %}
